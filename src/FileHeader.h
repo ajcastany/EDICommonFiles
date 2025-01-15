@@ -1,6 +1,6 @@
 #pragma once
-#include <string>
 #include <string_view>
+#include "IRow.h"
 
 /// @namespace CommonFormatFile
 /// @brief Provides the headers, trailers and detail rows for JCQ Common Format Files
@@ -9,7 +9,7 @@
 namespace CommonFormatFile {
 
   /// @brief Validates and contains a File Header for JCQ Common Format Files
-  class FileHeader {
+  class FileHeader : public IRow {
   private:
     char m_dataType;
     static constexpr char RECORD_TYPE = '1';
@@ -22,8 +22,6 @@ namespace CommonFormatFile {
     static constexpr std::string_view SOFTWARE_VERSION = "01";
     static constexpr std::string_view FORMATS_VERSION = "14";
 
-    std::string m_row;
-
   public:
     FileHeader(char const data_type,
                std::string const centre_number,
@@ -31,6 +29,13 @@ namespace CommonFormatFile {
                std::string const examination_series,
                std::string const year,
                char const dist_type);
-    const std::string& getRow() const;
+    // overrides
+    const std::string& getRow() const override;
+    // delete copy and move constructor
+    FileHeader(const FileHeader&) = delete;
+    FileHeader& operator=(const FileHeader&) = delete;
+    // delete move operator and constructor
+    FileHeader(const FileHeader&&) = delete;
+    FileHeader& operator=(const FileHeader&&) = delete;
 };
-}
+} // namespace CommonFormatFile
