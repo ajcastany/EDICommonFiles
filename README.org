@@ -4,3 +4,7 @@
 
 ** File Header
 *** TODO centreNumber can be alphabetic for dist types B and M
+
+* Commands
+
+Compile and run tests: ~cmake --build build && cmake --build build --target test~

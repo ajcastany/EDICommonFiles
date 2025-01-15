@@ -22,16 +22,28 @@ TEST(FileHeaderTest, DataTypeNotAE) {
                );
 }
 
-TEST(FileHeaderTest, CentreShortLength) {
+TEST(FileHeaderTest, CentreIsSeries) {
+  CommonFormatFile::FileHeader header{'A', "1A25B", "40", "AA", "25", 'B'};
+  std::string result = header.getRow();
+  EXPECT_EQ(result, rpad("A11A25B40AA25BQTCXX  0114"));
+}
+
+TEST(FileHeaderTest, CentreIsSeriesUnderscore) {
+  CommonFormatFile::FileHeader header{'A', "1A25_", "40", "AA", "25", 'M'};
+  std::string result = header.getRow();
+  EXPECT_EQ(result, rpad("A11A25_40AA25MQTCXX  0114"));
+}
+
+TEST(FileHeaderTest, CentreIsSeriesInvalid) {
   EXPECT_THROW(
-               CommonFormatFile::FileHeader('A', "", "40", "AA", "25", 'S'),
+               CommonFormatFile::FileHeader('A', "0025B", "40", "AA", "25", 'M'),
                std::invalid_argument
                );
 }
 
-TEST(FileHeaderTest, CentreLongLength) {
+TEST(FileHeaderTest, CentreIsSeriesRegionInvalid) {
   EXPECT_THROW(
-               CommonFormatFile::FileHeader('A', "000000", "40", "AA", "25", 'S'),
+               CommonFormatFile::FileHeader('A', "1A25X", "40", "AA", "25", 'B'),
                std::invalid_argument
                );
 }
