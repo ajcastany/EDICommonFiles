@@ -4,7 +4,8 @@ find_package(GTest REQUIRED)
 set(TEST_SOURCES
     test_file_header.cpp
     test_centre_header.cpp
-    test_centre_trailer.cpp)
+    test_centre_trailer.cpp
+    test_file_trailer.cpp)
 
 # Loop in test sources:
 foreach(TEST_SOURCE ${TEST_SOURCES})
