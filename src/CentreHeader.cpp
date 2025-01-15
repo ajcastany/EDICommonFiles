@@ -12,8 +12,8 @@ CommonFormatFile::CentreHeader::CentreHeader(
         return data_type;
       }()},
       m_centreNumber{[&]() {
-        // TODO: centre number can be alphabetic in dist types != S
-        Validator::validateString(centre_number, "\\d{5}");
+        Validator::validateString(centre_number,
+                                  "(^[1-9ABC]{2}\\d{2}[B_]$)|(\\d{5})");
         return centre_number;
       }()},
       m_aO{[&]() {
