@@ -31,6 +31,7 @@ namespace CommonFormatFile {
                char const dist_type);
     // overrides
     const std::string& getRow() const override;
+
     // delete copy and move constructor
     FileHeader(const FileHeader&) = delete;
     FileHeader& operator=(const FileHeader&) = delete;
