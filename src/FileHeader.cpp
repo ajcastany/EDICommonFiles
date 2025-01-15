@@ -3,6 +3,7 @@
 #include "StringUtils.h"
 #include "Validator.h"
 
+/// @brief Constructor that validates the params, and builds the File Header row with rpad of 194 spaces
 CommonFormatFile::FileHeader::FileHeader(char const data_type,
                                          std::string const centre_number,
                                          std::string const ao,
