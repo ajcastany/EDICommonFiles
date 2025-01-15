@@ -9,7 +9,8 @@ add_library(CommonFormatFile
   src/CommonFormatFile.cpp
   src/FileHeader.cpp
   src/Validator.cpp
-  src/CentreHeader.cpp)
+  src/CentreHeader.cpp
+  src/CentreTrailer.cpp)
 
 
 target_include_directories(CommonFormatFile PRIVATE src)
