@@ -8,7 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(CommonFormatFile
   src/CommonFormatFile.cpp
   src/FileHeader.cpp
-  src/Validator.cpp)
+  src/Validator.cpp
+  src/CentreHeader.cpp)
 
 
 target_include_directories(CommonFormatFile PRIVATE src)
