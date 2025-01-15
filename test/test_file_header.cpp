@@ -14,3 +14,10 @@ TEST(FileHeaderTest, ValidContent) {
   std::string result = header.getRow();
   EXPECT_EQ(result, rpad("A10000040AA25SQTCXX  0114"));
 }
+
+TEST(FileHeaderTest, CentreHasAlpha) {
+  EXPECT_THROW(
+               CommonFormatFile::FileHeader('A', "00A00", "40", "AA", "25", 'S'),
+               std::invalid_argument
+               );
+}
