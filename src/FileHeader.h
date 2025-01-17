@@ -23,12 +23,12 @@ namespace CommonFormatFile {
     static constexpr std::string_view FORMATS_VERSION = "14";
 
   public:
-    FileHeader(char const data_type,
-               std::string const centre_number,
-               std::string const ao,
-               std::string const examination_series,
-               std::string const year,
-               char const dist_type);
+    FileHeader(const char data_type,
+               const std::string& centre_number,
+               const std::string& ao,
+               const std::string& examination_series,
+               const std::string& year,
+               const char dist_type);
     // overrides
     const std::string& getRow() const override;
 

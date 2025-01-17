@@ -4,12 +4,12 @@
 #include "Validator.h"
 
 /// @brief Constructor that validates the params, and builds the File Header row with rpad of 194 spaces
-CommonFormatFile::FileHeader::FileHeader(char const data_type,
-                                         std::string const centre_number,
-                                         std::string const ao,
-                                         std::string const examination_series,
-                                         std::string const year,
-                                         char const dist_type)
+CommonFormatFile::FileHeader::FileHeader(const char data_type,
+                                         const std::string& centre_number,
+                                         const std::string& ao,
+                                         const std::string& examination_series,
+                                         const std::string& year,
+                                         const char dist_type)
   : m_dataType{[&]() {
     Validator::validateChar(data_type, "AE");
     return data_type;
