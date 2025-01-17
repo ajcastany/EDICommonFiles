@@ -16,10 +16,17 @@ namespace CommonFormatFile {
     std::string m_numberRecords;
     std::string m_createdDate; // ddmmyy
   public:
-    CentreTrailer(char const data_type, std::string const centre_number,
-                  std::string const number_records,
-                  std::string const created_date);
+    CentreTrailer(const char data_type,
+                  const std::string& centre_number,
+                  const std::string& number_records,
+                  const std::string& created_date);
     // overrides
     const std::string &getRow() const override;
+
+    // delete copy and move operator
+    CentreTrailer(const CentreTrailer&) = delete;
+    CentreTrailer& operator=(const CentreTrailer&) = delete;
+    CentreTrailer(const CentreTrailer&&) = delete;
+    CentreTrailer&& operator=(const CentreTrailer) = delete;
   };
 } // namespace CommonFormatFile
