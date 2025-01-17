@@ -4,9 +4,13 @@
 #include "Validator.h"
 
 CommonFormatFile::CentreHeader::CentreHeader(
-    char const data_type, std::string const centre_number, std::string const ao,
-    std::string const examination_series, std::string const year,
-    std::string const sequence, std::string const centre_postcode)
+    char const data_type,
+    const std::string& centre_number,
+    const std::string& ao,
+    const std::string& examination_series,
+    const std::string& year,
+    const std::string& sequence,
+    const std::string& centre_postcode)
     : m_dataType{[&]() {
         Validator::validateChar(data_type, "AE");
         return data_type;
