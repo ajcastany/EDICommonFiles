@@ -14,13 +14,10 @@ namespace CommonFormatFile {
     std::string m_centrePostcode;
 
   public:
-    CentreHeader(char const data_type,
-                 std::string const centre_number,
-                 std::string const ao,
-                 std::string const examination_series,
-                 std::string const year,
-                 std::string const sequence,
-                 std::string const centre_postcode);
+    CentreHeader(const char data_type, std::string const centre_number,
+                 const std::string& ao, std::string const examination_series,
+                 const std::string& year, std::string const sequence,
+                 const std::string& centre_postcode);
 
     // overrides
     const std::string& getRow() const override;
