@@ -3,10 +3,10 @@
 #include "StringUtils.h"
 #include "Validator.h"
 
-CommonFormatFile::FileTrailer::FileTrailer(char const data_type,
-                                           std::string const centre_number,
-                                           std::string const number_records,
-                                           std::string const number_centres)
+CommonFormatFile::FileTrailer::FileTrailer(const char data_type,
+                                           const std::string& centre_number,
+                                           const std::string& number_records,
+                                           const std::string& number_centres)
   : m_dataType{data_type},
     m_centreNumber{centre_number},
     m_numberRecords{[&]() {

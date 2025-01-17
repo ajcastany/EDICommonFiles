@@ -12,9 +12,17 @@ namespace CommonFormatFile {
     std::string m_numberCentres;
 
   public:
-    FileTrailer(char const data_type, std::string const centre_number,
-                std::string const number_records,
-                std::string const number_centres);
+    FileTrailer(const char data_type,
+                const std::string& centre_number,
+                const std::string& number_records,
+                const std::string& number_centres);
     const std::string& getRow() const override;
+
+    // delete copy and move
+    FileTrailer(const FileTrailer&) = delete;
+    FileTrailer& operator=(FileTrailer&) = delete;
+    FileTrailer(const FileTrailer&&) = delete;
+    FileTrailer& operator=(FileTrailer&&) = delete;
+
   };
 } // namespace CommonFormatFile
